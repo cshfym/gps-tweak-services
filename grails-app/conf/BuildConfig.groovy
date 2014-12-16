@@ -6,13 +6,21 @@ grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
+def hibernateVersion = "3.5.4-Final"
+def springVersion = "3.2.8.RELEASE"
+def tomcatJdbcVersion = "8.0.15"
+def postgreSqlVersion = "8.4-702.jdbc3"
+
+grails.project.dependency.resolver = "maven"
+
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
+        excludes "org.springframework"
     }
-    log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    log "debug" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
 
     repositories {
@@ -34,12 +42,14 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        // runtime 'mysql:mysql-connector-java:5.1.20'
-        runtime "postgresql:postgresql:8.4-702.jdbc3"
+        compile "org.springframework:spring-orm:${springVersion}"
+        compile "org.hibernate:hibernate-entitymanager:${hibernateVersion}"
+        compile "org.apache.tomcat:tomcat-jdbc:${tomcatJdbcVersion}"
+        runtime "postgresql:postgresql:${postgreSqlVersion}"
     }
 
     plugins {
-        runtime ":hibernate:$grailsVersion"
+        // runtime ":hibernate:$grailsVersion"
         runtime ":jquery:1.7.2"
         runtime ":resources:1.1.6"
 
@@ -48,11 +58,13 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.4"
 
-        build ":tomcat:$grailsVersion"
-        runtime ":database-migration:1.1"
-        // complie ":database-session:1.2.1" // Sticky sessions.
+        build ":tomcat:8.0.15"
+        // runtime ":database-migration:1.1"
+        // compile ":database-session:1.2.1" // Sticky sessions.
         compile ":heroku:1.0.1"
-        compile ':cache:1.0.0'
+        // compile ':cache:1.0.0'
         compile ':cloud-support:1.0.11'
+
+
     }
 }
