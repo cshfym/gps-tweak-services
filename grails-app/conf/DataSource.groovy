@@ -26,7 +26,6 @@ environments {
             username = uri.userInfo.split(":")[0]
             password = uri.userInfo.split(":")[1]
         }
-
     }
     test {
         dataSource {
