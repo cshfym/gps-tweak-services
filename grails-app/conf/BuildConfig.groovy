@@ -6,6 +6,7 @@ grails.project.target.level = 1.7
 grails.project.source.level = 1.7
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
+def jettyVersion = "9.3.0.M1"
 def hibernateVersion = "3.5.4-Final"
 def springVersion = "3.2.8.RELEASE"
 def tomcatJdbcVersion = "8.0.15"
@@ -41,6 +42,14 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
     dependencies {
+
+        // Jetty
+        //compile "org.eclipse.jetty:jetty-servlet:${jettyVersion}"
+        //compile "org.eclipse.jetty:jetty-webapp:${jettyVersion}"
+
+        //compile "javax.xml.ws:jaxws-api:2.1"
+        //compile "com.sun.jersey:jersey-server:1.8"
+        //compile "com.sun.jersey:jersey-json:1.8"
 
         compile "org.springframework:spring-orm:${springVersion}"
         compile "org.hibernate:hibernate-entitymanager:${hibernateVersion}"
