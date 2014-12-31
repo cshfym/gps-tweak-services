@@ -1,18 +1,23 @@
 package com.gpstweak.domain
 
 import javax.persistence.*
+
 @Entity
 @Table(name = "employee")
 @SequenceGenerator(name="pk_sequence",sequenceName="employee_seq", allocationSize = 1)
 public class Employee {
+
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="pk_sequence")
     @Column(name = "id")
     private int id
+
     @Column(name = "first_name")
     private String firstName
+
     @Column(name = "last_name")
     private String lastName
+
     @Column(name = "salary")
     private int salary
 

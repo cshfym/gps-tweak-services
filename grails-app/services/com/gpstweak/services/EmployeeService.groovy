@@ -1,19 +1,21 @@
-package com.gpstweak.service
+package com.gpstweak.services
 
 import com.gpstweak.domain.Employee
+import grails.transaction.Transactional
 import org.hibernate.HibernateException
 import org.hibernate.Session
 import org.hibernate.Transaction
 import org.hibernate.cfg.AnnotationConfiguration
 import org.hibernate.SessionFactory
 
+@Transactional
 public class EmployeeService {
 
     private static SessionFactory factory
 
     public  void doStuff() {
         try{
-            factory = new AnnotationConfiguration().configure().addAnnotatedClass(Employee.class).buildSessionFactory()
+            factory = new AnnotationConfiguration().configure().buildSessionFactory()
         }catch (Throwable ex) {
             System.err.println("Failed to create sessionFactory object." + ex)
             throw new ExceptionInInitializerError(ex)
@@ -21,23 +23,21 @@ public class EmployeeService {
 
         /* Add few employee records in database */
         try {
-
-
-        Integer empID1 = addEmployee("Zara", "Ali", 1000)
-        Integer empID2 = addEmployee("Daisy", "Das", 5000)
-        Integer empID3 = addEmployee("John", "Paul", 10000)
-        /* List down all the employees */
-        listEmployees()
-        /* Update employee's records */
-        updateEmployee(empID1, 5000)
-        /* Delete an employee from the database */
-        deleteEmployee(empID2)
-        /* List down new list of the employees */
-        listEmployees()
+            Integer empID1 = addEmployee("Zara", "Ali", 1000)
+            Integer empID2 = addEmployee("Daisy", "Das", 5000)
+            Integer empID3 = addEmployee("John", "Paul", 10000)
+            /* List down all the employees */
+            listEmployees()
+            /* Update employee's records */
+            updateEmployee(empID1, 5000)
+            /* Delete an employee from the database */
+            deleteEmployee(empID2)
+            /* List down new list of the employees */
+            listEmployees()
         } catch (Exception ex) {
             ex.printStackTrace()
         } finally {
-          factory.close()
+            factory.close()
         }
     }
     /* Method to CREATE an employee in the database */
@@ -87,8 +87,8 @@ public class EmployeeService {
         Session session = factory.openSession()
         Transaction tx = null
         try{
-                tx = session.beginTransaction()
-                Employee employee = (Employee)session.get(Employee.class, EmployeeID)
+            tx = session.beginTransaction()
+            Employee employee = (Employee)session.get(Employee.class, EmployeeID)
             employee.setSalary( salary )
             session.update(employee)
             tx.commit()

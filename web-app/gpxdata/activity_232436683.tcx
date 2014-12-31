@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+  xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd"
+  xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+  xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+  xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1">
+  <Activities>
+    <Activity Sport="Other">
+      <Id>2012-10-08T23:20:02.000Z</Id>
+      <Lap StartTime="2012-10-08T23:20:02.000Z">
+        <TotalTimeSeconds>104.408</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <MaximumSpeed>0.9860000014305115</MaximumSpeed>
+        <Calories>26</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:20:02.000Z</Time>
+            <DistanceMeters>0.0</DistanceMeters>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:20:52.000Z</Time>
+            <DistanceMeters>50.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.9860000014305115</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:21:45.000Z</Time>
+            <DistanceMeters>100.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.9580000042915344</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:21:47.000Z">
+        <TotalTimeSeconds>10.101</TotalTimeSeconds>
+        <DistanceMeters>0.0</DistanceMeters>
+        <Calories>0</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:21:57.000Z</Time>
+            <DistanceMeters>100.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.0</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:21:57.000Z">
+        <TotalTimeSeconds>115.125</TotalTimeSeconds>
+        <DistanceMeters>150.0</DistanceMeters>
+        <MaximumSpeed>2.186000108718872</MaximumSpeed>
+        <Calories>38</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:22:52.000Z</Time>
+            <DistanceMeters>150.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.9010000228881837</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:23:28.000Z</Time>
+            <DistanceMeters>200.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>1.3769999742507935</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:23:50.000Z</Time>
+            <DistanceMeters>250.0</DistanceMeters>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:24:28.000Z</Time>
+            <DistanceMeters>250.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>1.3029999732971191</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:24:38.000Z">
+        <TotalTimeSeconds>123.16</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <MaximumSpeed>0.9860000014305115</MaximumSpeed>
+        <Calories>35</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:25:43.000Z</Time>
+            <DistanceMeters>300.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.6589999794960022</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:26:33.000Z</Time>
+            <DistanceMeters>350.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.8119999766349792</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:26:41.000Z">
+        <TotalTimeSeconds>9.85</TotalTimeSeconds>
+        <DistanceMeters>0.0</DistanceMeters>
+        <Calories>0</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:26:50.000Z</Time>
+            <DistanceMeters>350.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.0</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:26:51.000Z">
+        <TotalTimeSeconds>122.3</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <MaximumSpeed>0.9129999876022339</MaximumSpeed>
+        <Calories>20</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:27:58.000Z</Time>
+            <DistanceMeters>400.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.7450000047683716</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:28:52.000Z</Time>
+            <DistanceMeters>450.0</DistanceMeters>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:29:46.000Z</Time>
+            <DistanceMeters>500.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.9449999928474426</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:30:34.000Z</Time>
+            <DistanceMeters>550.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.8180000185966492</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:31:05.000Z">
+        <TotalTimeSeconds>97.636</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <MaximumSpeed>1.0230000019073486</MaximumSpeed>
+        <Calories>26</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>1.0240000486373901</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:32:43.000Z">
+        <TotalTimeSeconds>15.951</TotalTimeSeconds>
+        <DistanceMeters>0.0</DistanceMeters>
+        <Calories>0</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:32:58.000Z</Time>
+            <DistanceMeters>550.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.0</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:32:59.000Z">
+        <TotalTimeSeconds>107.525</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <MaximumSpeed>0.9369999766349792</MaximumSpeed>
+        <Calories>26</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:33:52.000Z</Time>
+            <DistanceMeters>600.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.9300000071525574</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:34:45.000Z</Time>
+            <DistanceMeters>650.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.9300000071525574</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:34:46.000Z">
+        <TotalTimeSeconds>104.985</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <MaximumSpeed>0.9909999966621399</MaximumSpeed>
+        <Calories>26</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:34:48.000Z</Time>
+            <DistanceMeters>650.0</DistanceMeters>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:35:39.000Z</Time>
+            <DistanceMeters>700.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.9909999966621399</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:36:30.000Z</Time>
+            <DistanceMeters>750.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.9530000090599061</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:37:10.000Z">
+        <TotalTimeSeconds>32.538</TotalTimeSeconds>
+        <DistanceMeters>0.0</DistanceMeters>
+        <Calories>0</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:37:41.000Z</Time>
+            <DistanceMeters>750.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.0</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:37:42.000Z">
+        <TotalTimeSeconds>116.162</TotalTimeSeconds>
+        <DistanceMeters>150.0</DistanceMeters>
+        <MaximumSpeed>2.6670000553131104</MaximumSpeed>
+        <Calories>38</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:38:40.000Z</Time>
+            <DistanceMeters>800.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.8619999885559082</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:39:19.000Z</Time>
+            <DistanceMeters>850.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>1.281999945640564</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:39:37.000Z</Time>
+            <DistanceMeters>900.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>1.2910000085830688</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:39:39.000Z">
+        <TotalTimeSeconds>105.937</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <MaximumSpeed>0.984000027179718</MaximumSpeed>
+        <Calories>26</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:39:40.000Z</Time>
+            <DistanceMeters>900.0</DistanceMeters>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:40:31.000Z</Time>
+            <DistanceMeters>950.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.984000027179718</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:42:15.000Z</Time>
+            <DistanceMeters>1000.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.944000005722046</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:42:15.000Z">
+        <TotalTimeSeconds>0.474</TotalTimeSeconds>
+        <DistanceMeters>0.0</DistanceMeters>
+        <Calories>0</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:43:32.000Z</Time>
+            <DistanceMeters>1050.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.8730000257492065</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.0</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:44:32.000Z">
+        <TotalTimeSeconds>2.56</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <MaximumSpeed>0.8730000257492065</MaximumSpeed>
+        <Calories>26</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:44:33.000Z</Time>
+            <DistanceMeters>1100.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>39.0629997253418</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:44:34.000Z">
+        <TotalTimeSeconds>235.806</TotalTimeSeconds>
+        <DistanceMeters>50.0</DistanceMeters>
+        <MaximumSpeed>1.3329999446868896</MaximumSpeed>
+        <Calories>12</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:44:35.000Z</Time>
+            <DistanceMeters>1100.0</DistanceMeters>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:45:17.000Z</Time>
+            <DistanceMeters>1100.0</DistanceMeters>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:45:54.000Z</Time>
+            <DistanceMeters>1150.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>1.3329999446868896</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:48:28.000Z</Time>
+            <DistanceMeters>1150.0</DistanceMeters>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:50:29.000Z</Time>
+            <DistanceMeters>1150.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.21199999749660492</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:50:29.000Z">
+        <TotalTimeSeconds>113.306</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <MaximumSpeed>0.925000011920929</MaximumSpeed>
+        <Calories>26</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:51:27.000Z</Time>
+            <DistanceMeters>1200.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.862999975681305</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:52:21.000Z</Time>
+            <DistanceMeters>1250.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.8830000162124635</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:52:39.000Z">
+        <TotalTimeSeconds>29.273</TotalTimeSeconds>
+        <DistanceMeters>0.0</DistanceMeters>
+        <Calories>0</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:53:07.000Z</Time>
+            <DistanceMeters>1250.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.0</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:53:08.000Z">
+        <TotalTimeSeconds>114.153</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <MaximumSpeed>0.9020000100135803</MaximumSpeed>
+        <Calories>26</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:54:06.000Z</Time>
+            <DistanceMeters>1300.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.8569999933242798</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:55:01.000Z</Time>
+            <DistanceMeters>1350.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.8759999871253967</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:55:02.000Z">
+        <TotalTimeSeconds>24.381</TotalTimeSeconds>
+        <DistanceMeters>0.0</DistanceMeters>
+        <Calories>0</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:55:26.000Z</Time>
+            <DistanceMeters>1350.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.0</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:55:27.000Z">
+        <TotalTimeSeconds>117.82</TotalTimeSeconds>
+        <DistanceMeters>100.0</DistanceMeters>
+        <MaximumSpeed>0.8600000143051147</MaximumSpeed>
+        <Calories>26</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2012-10-08T23:56:26.000Z</Time>
+            <DistanceMeters>1400.0</DistanceMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>0.843999981880188</Speed>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:57:24.000Z</Time>
+            <DistanceMeters>1450.0</DistanceMeters>
+          </Trackpoint>
+          <Trackpoint>
+            <Time>2012-10-08T23:57:25.000Z</Time>
+            <DistanceMeters>1450.0</DistanceMeters>
+          </Trackpoint>
+        </Track>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.8489999771118164</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-10-08T23:57:25.000Z">
+        <TotalTimeSeconds>0.731</TotalTimeSeconds>
+        <DistanceMeters>0.0</DistanceMeters>
+        <Calories>0</Calories>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>0.0</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Creator xsi:type="Device_t">
+        <Name>Forerunner 910XT</Name>
+        <UnitId>3841819463</UnitId>
+        <ProductID>1328</ProductID>
+        <Version>
+          <VersionMajor>2</VersionMajor>
+          <VersionMinor>20</VersionMinor>
+          <BuildMajor>0</BuildMajor>
+          <BuildMinor>0</BuildMinor>
+        </Version>
+      </Creator>
+    </Activity>
+  </Activities>
+  <Author xsi:type="Application_t">
+    <Name>Garmin Connect API</Name>
+    <Build>
+      <Version>
+        <VersionMajor>12</VersionMajor>
+        <VersionMinor>6</VersionMinor>
+        <BuildMajor>1</BuildMajor>
+        <BuildMinor>1</BuildMinor>
+      </Version>
+    </Build>
+    <LangID>en</LangID>
+    <PartNumber>006-D2449-00</PartNumber>
+  </Author>
+</TrainingCenterDatabase>
