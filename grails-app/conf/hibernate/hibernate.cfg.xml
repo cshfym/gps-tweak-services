@@ -13,6 +13,7 @@
       <property name="hibernate.connection.requireSSL">true</property>
 
       <mapping class="com.gpstweak.domain.Employee" />
+      <mapping class="com.gpstweak.domain.GPSData" />
 
     </session-factory>
 </hibernate-configuration>

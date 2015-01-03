@@ -11,7 +11,11 @@ public enum PayloadType {
         this.type = type
     }
 
-    public PayloadType getType(String type) {
+    public String getType() {
+      type
+    }
+
+    public PayloadType getByType(String type) {
         values().each {
             if (it.type == type) {
                 return it
