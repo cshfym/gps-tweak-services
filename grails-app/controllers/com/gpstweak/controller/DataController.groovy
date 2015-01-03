@@ -1,6 +1,8 @@
 package com.gpstweak.controller
 
 import com.gpstweak.domain.Employee
+import com.gpstweak.domain.GPSPayloadWrapper
+import com.gpstweak.services.MongoService
 import org.springframework.beans.factory.annotation.Autowired
 import com.gpstweak.services.GPSTweakSecurityService
 import com.google.gson.*
@@ -22,8 +24,11 @@ If this is not a requirement they can be discarded.
 
 public class DataController {
 
-  @Autowired
-  GPSTweakSecurityService securityService
+    @Autowired
+    GPSTweakSecurityService securityService
+
+    @Autowired
+    MongoService mongoService
 
     Gson gson = new Gson()
 
@@ -32,15 +37,16 @@ public class DataController {
         render gson.toJson(e)
     }
 
-    def show(Integer id) {
-        Employee e = new Employee(id: (null != id) ? id : 1, firstName: "Show", lastName: "Method")
-        render gson.toJson(e)
+    def show(String userId) {
+        List<GPSPayloadWrapper> list = mongoService.getGPSPayloadWrapperDataByUserId(userId)
+        render gson.toJson(list)
     }
 
     def save() {
-        def jsonObj = request.JSON
-        Employee e = new Employee(jsonObj)
-        render gson.toJson(e)
+        GPSPayloadWrapper payload = new GPSPayloadWrapper(request.JSON)
+        mongoService.saveData(payload)
+        response.setStatus(201)
+        render gson.toJson(payload)
     }
 
     def update() {

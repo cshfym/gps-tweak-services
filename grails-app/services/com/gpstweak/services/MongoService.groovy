@@ -1,5 +1,6 @@
 package com.gpstweak.services
 
+import com.gpstweak.domain.GPSPayloadWrapper
 import com.mongodb.BasicDBObject
 import com.mongodb.DB
 import com.mongodb.DBCollection
@@ -7,46 +8,84 @@ import com.mongodb.DBCursor
 import com.mongodb.DBObject
 import com.mongodb.MongoClient
 import com.mongodb.MongoClientURI
+import grails.transaction.Transactional
+import org.springframework.stereotype.Service
 
+@Service
+@Transactional
 class MongoService {
 
-    String MONGOLAB_URI = "mongodb://heroku_app32454887:quhav5sp9l34c8rb867ccvf996@ds047040.mongolab.com:47040/heroku_app32454887"
+    private static String MONGOLAB_URI = (System.getenv("MONGOLAB_URL")) ?:
+        "mongodb://heroku_app32454887:quhav5sp9l34c8rb867ccvf996@ds047040.mongolab.com:47040/heroku_app32454887"
 
-    public void connect() {
+    MongoClient client
+    DB connection
+
+    public MongoService() throws UnknownHostException {
+        MongoClientURI uri  = new MongoClientURI(MONGOLAB_URI)
+        client = new MongoClient(uri)
+        connection = client.getDB(uri.getDatabase())
     }
 
-    public void doMongo() throws UnknownHostException {
-
-        MongoClientURI uri  = new MongoClientURI(MONGOLAB_URI)
-        MongoClient client = new MongoClient(uri)
-        DB db = client.getDB(uri.getDatabase())
-
-        final BasicDBObject[] seedData = createSeedData()
-
-        DBCollection songs = db.getCollection("songs")
-
-        // Note that the insert method can take either an array or a document.
-
-        songs.insert(seedData)
+    public void saveData(GPSPayloadWrapper payload) {
 
         /*
-         * Then we need to give Boyz II Men credit for their contribution to
-         * the hit "One Sweet Day".
+          Estimated data size:
+          Marathon GPX data = ~2M.
+          4-Mile GPX data = ~125-150K.
+
          */
 
+        final BasicDBObject insertGPSObject = createDBObjectFromPayload(payload)
+        DBCollection gpsData = connection.getCollection("gpsdata")
+        gpsData.insert(insertGPSObject)
+    }
+
+    public List<GPSPayloadWrapper> getGPSPayloadWrapperDataByUserId(String userId) {
+
+        List<GPSPayloadWrapper> list = []
+
+        DBCollection gpsData = connection.getCollection("gpsdata")
+        BasicDBObject findQuery = new BasicDBObject("userId", new BasicDBObject("\$eq", userId)) //gte, eq, lte
+        BasicDBObject orderBy = new BasicDBObject("createDate", 1)
+        DBCursor docs = gpsData.find(findQuery).sort(orderBy)
+        while(docs.hasNext()){
+            list << createGPSPayloadWrapperFromDBObject(docs.next())
+        }
+        list
+    }
+
+    private BasicDBObject createDBObjectFromPayload(GPSPayloadWrapper payload) {
+        BasicDBObject dbObject = new BasicDBObject()
+        dbObject.with {
+            put("userId", payload.userId)
+            put("createDate", payload.createDate)
+            put("payloadType", payload.payloadType)
+            put("base64Payload", payload.base64Payload)
+        }
+        dbObject
+    }
+
+    private GPSPayloadWrapper createGPSPayloadWrapperFromDBObject(DBObject dbObject) {
+        new GPSPayloadWrapper(
+                userId: dbObject.get("userId"),
+                createDate: dbObject.get("createDate"),
+                payloadType: dbObject.get("payloadType"),
+                base64Payload: dbObject.get("base64Payload")
+        )
+    }
+
+    /*
+    private stuff() {
+
+        // Sample Update
         BasicDBObject updateQuery = new BasicDBObject("song", "One Sweet Day")
         songs.update(updateQuery, new BasicDBObject("\$set", new BasicDBObject("artist", "Mariah Carey ft. Boyz II Men")))
 
-        /*
-         * Finally we run a query which returns all the hits that spent 10
-         * or more weeks at number 1.
-         */
-
+        // Sample query
         BasicDBObject findQuery = new BasicDBObject("weeksAtOne", new BasicDBObject("\$gte",10)) //gte, eq, lte
         BasicDBObject orderBy = new BasicDBObject("decade", 1)
-
         DBCursor docs = songs.find(findQuery).sort(orderBy)
-
         while(docs.hasNext()){
             DBObject doc = docs.next()
             System.out.println(
@@ -57,11 +96,9 @@ class MongoService {
         }
 
         // Since this is an example, we'll clean up after ourselves.
-
         songs.drop()
 
         // Only close the connection when your app is terminating
-
         client.close()
     }
 
@@ -91,5 +128,6 @@ class MongoService {
         seedData[2] = nineties
         seedData
     }
+    */
 }
 
