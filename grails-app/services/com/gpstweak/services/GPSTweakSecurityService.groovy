@@ -1,4 +1,4 @@
-package security
+package com.gpstweak.services
 
 import grails.transaction.Transactional
 import org.springframework.stereotype.Service
@@ -15,14 +15,12 @@ import java.security.spec.RSAPublicKeySpec
 @Service
 class GPSTweakSecurityService {
 
-  private String AUTH_TOKEN = "c94c020f-517e-4afd-bab5-8be97a4e8bc7"
-
-  public Boolean isAuthenticated(HttpServletRequest request) {
-    Boolean authenticated = Boolean.FALSE
-    if(request.getHeader("Authorization") && AUTH_TOKEN.equals(request.getHeader("Authorization"))) {
-      authenticated = Boolean.TRUE
-    }
-    authenticated
+  public void rsaTest() {
+      byte[] data = "Hello from RSA!".bytes
+      byte[] encrypted = rsaEncryptWithPublicKey(data)
+      byte[] decrypted = rsaDecryptWithPrivateKey(encrypted)
+      String d = new String(decrypted)
+      println d
   }
   public byte[] rsaEncryptWithPublicKey(byte[] data) {
     PublicKey pubKey = readPublicKeyFromFile("data/public.key")

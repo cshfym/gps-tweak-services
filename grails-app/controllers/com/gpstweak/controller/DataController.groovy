@@ -1,24 +1,8 @@
 package com.gpstweak.controller
 
 import com.gpstweak.domain.Employee
-import grails.rest.RestfulController
-import grails.transaction.*
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.ResourceLoaderAware
-import security.GPSTweakSecurityService
-
-import javax.crypto.Cipher
-import java.security.Key
-import java.security.KeyFactory
-import java.security.KeyPair
-import java.security.KeyPairGenerator
-import java.security.PrivateKey
-import java.security.PublicKey
-import java.security.spec.RSAPrivateKeySpec
-import java.security.spec.RSAPublicKeySpec
-
-import static org.springframework.http.HttpStatus.*
-import static org.springframework.http.HttpMethod.*
+import com.gpstweak.services.GPSTweakSecurityService
 import com.google.gson.*
 
 /* Grails Controllers:
@@ -54,20 +38,6 @@ public class DataController {
     }
 
     def save() {
-
-      String header = request.getHeader("Authorization")
-      if(!AUTH_TOKEN.equals(header)) {
-        response.sendError(401, "Invalid authentication token.")
-        return
-      }
-
-      byte[] data = "Hello from RSA!".bytes
-      byte[] encrypted = securityService.rsaEncryptWithPublicKey(data)
-
-      byte[] decrypted = securityService.rsaDecryptWithPrivateKey(encrypted)
-      String d = new String(decrypted)
-      println d
-
         def jsonObj = request.JSON
         Employee e = new Employee(jsonObj)
         render gson.toJson(e)

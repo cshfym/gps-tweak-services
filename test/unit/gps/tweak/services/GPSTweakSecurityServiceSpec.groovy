@@ -1,4 +1,4 @@
-package security
+package gps.tweak.services
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
