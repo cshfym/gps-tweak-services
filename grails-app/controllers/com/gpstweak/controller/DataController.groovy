@@ -1,8 +1,10 @@
 package com.gpstweak.controller
 
 import com.gpstweak.domain.Employee
+import com.gpstweak.domain.GPSData
 import com.gpstweak.domain.GPSPayloadWrapper
 import com.gpstweak.services.GPSDataService
+import com.gpstweak.services.MQService
 import com.gpstweak.services.MongoService
 import org.springframework.beans.factory.annotation.Autowired
 import com.gpstweak.services.GPSTweakSecurityService
@@ -34,6 +36,8 @@ public class DataController {
     @Autowired
     MongoService mongoService
 
+
+
     Gson gson = new Gson()
 
     def index() {
@@ -41,9 +45,36 @@ public class DataController {
         render gson.toJson(e)
     }
 
-    def show(String userId) {
+    def push() {
+      MQService mqService = new MQService("54a78bd2a65b22000900007b", "xwvYCsVgSmla3CCe7JIhXf4YNs0")
+      mqService.pushMessage("Test Message", "test-queue")
+      response.setStatus(200)
+    }
+
+    def show(String id) {
+      /*
         List<GPSPayloadWrapper> list = mongoService.getGPSPayloadWrapperDataByUserId(userId)
         render gson.toJson(list)
+        */
+      if (null == id) {
+        response.setStatus(404)
+        return
+      }
+
+      GPSData data = gpsDataService.find(GPSData.class, Long.valueOf(id))
+      if (null == data) {
+        response.setStatus(404)
+        return
+      }
+
+      response.setStatus(200)
+      render gson.toJson(data)
+    }
+
+    def findAll() {
+      List<GPSData> list = gpsDataService.findAll(GPSData.canonicalName)
+      response.setStatus(200)
+      render gson.toJson(list)
     }
 
     def save() {
@@ -54,8 +85,9 @@ public class DataController {
         render gson.toJson(payload)
         */
 
-      gpsDataService.createGPSData()
-
+      GPSData data = gpsDataService.createGPSData()
+      response.setStatus(201)
+      render gson.toJson(data)
     }
 
     def update() {

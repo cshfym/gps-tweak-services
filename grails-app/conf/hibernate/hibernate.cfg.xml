@@ -12,6 +12,14 @@
       <property name="hibernate.connection.password">v43QSQLk8dmB-LJETM_2b99xdf</property>
       <property name="hibernate.connection.requireSSL">true</property>
 
+      <!-- Enable C3P0 database connection pool -->
+      <property name="c3p0.min_size">2</property>
+      <property name="c3p0.max_size">5</property>
+      <property name="c3p0.timeout">600</property>
+      <property name="c3p0.max_statements">0</property>
+      <property name="hibernate.c3p0.idle_test_period">300</property>
+      <property name="hibernate.c3p0.acquire_increment">1</property>
+
       <mapping class="com.gpstweak.domain.Employee" />
       <mapping class="com.gpstweak.domain.GPSData" />
 

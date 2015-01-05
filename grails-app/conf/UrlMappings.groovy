@@ -13,6 +13,9 @@ class UrlMappings {
         "/data"(controller:"data") {
             action = [GET:"show", PUT:"update", DELETE:"delete", POST:"save"]
         }
+        "/data/findAll"(controller:"data", action:"findAll")
+        "/data/push"(controller:"data", action:"push")
+
 
 		"500"(view:'/error')
 	}

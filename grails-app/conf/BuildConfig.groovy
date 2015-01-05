@@ -12,6 +12,7 @@ def springVersion = "3.2.8.RELEASE"
 def tomcatJdbcVersion = "8.0.15"
 def postgreSqlVersion = "8.4-702.jdbc3"
 def mongoVersion = "2.12.4"
+def ironmqVersion = "0.0.10"
 
 grails.project.dependency.resolver = "maven"
 
@@ -35,6 +36,8 @@ grails.project.dependency.resolution = {
         mavenLocal()
         mavenCentral()
 
+        mavenRepo "http://iron-io.github.com/maven/repository"
+
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
@@ -56,6 +59,7 @@ grails.project.dependency.resolution = {
         compile "org.hibernate:hibernate-annotations:${hibernateVersion}"
         compile "org.apache.tomcat:tomcat-jdbc:${tomcatJdbcVersion}"
         compile "org.mongodb:mongo-java-driver:${mongoVersion}"
+        compile "ironmq:ironmq:${ironmqVersion}"
         runtime "postgresql:postgresql:${postgreSqlVersion}"
     }
 

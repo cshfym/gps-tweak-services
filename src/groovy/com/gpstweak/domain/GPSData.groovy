@@ -12,8 +12,10 @@ import javax.persistence.TemporalType
 
 @Entity
 @Table(name = "gps_data")
-@SequenceGenerator(name="pk_sequence",sequenceName="seq_gps_data", allocationSize = 1)
+@SequenceGenerator(name="pk_sequence", sequenceName="seq_gps_data", allocationSize = 1)
 class GPSData extends Persistable {
+
+  public GPSData() { }
 
   @Id
   @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="pk_sequence")
@@ -28,6 +30,14 @@ class GPSData extends Persistable {
 
   @Column(name = "payload")
   String payload
+
+  @Temporal(TemporalType.DATE)
+  @Column(name = "create_date")
+  Date createDate
+
+  @Temporal(TemporalType.DATE)
+  @Column(name = "update_date")
+  Date updateDate
 
   Long getId() {
     return id
@@ -59,5 +69,21 @@ class GPSData extends Persistable {
 
   void setPayload(String payload) {
     this.payload = payload
+  }
+
+  Date getCreateDate() {
+    return createDate
+  }
+
+  void setCreateDate(Date createDate) {
+    this.createDate = createDate
+  }
+
+  Date getUpdateDate() {
+    return updateDate
+  }
+
+  void setUpdateDate(Date updateDate) {
+    this.updateDate = updateDate
   }
 }
