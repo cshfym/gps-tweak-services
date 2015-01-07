@@ -61,6 +61,7 @@ grails.project.dependency.resolution = {
         compile "org.mongodb:mongo-java-driver:${mongoVersion}"
         compile "ironmq:ironmq:${ironmqVersion}"
         runtime "postgresql:postgresql:${postgreSqlVersion}"
+        runtime "mysql:mysql-connector-java:5.1.6"
     }
 
     plugins {

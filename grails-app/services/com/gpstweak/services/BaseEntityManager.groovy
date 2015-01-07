@@ -70,14 +70,13 @@ class BaseEntityManager {
   /* Create Entity */
   public <T> T create(Persistable obj) {
 
-    Integer id = -1
-
     Session session = factory.openSession()
     Transaction tx = null
 
     try {
       tx = session.beginTransaction()
-      id = (Integer) session.save(obj)
+      //id = (Integer) session.save(obj)
+      session.save(obj)
       tx.commit()
     } catch (HibernateException e) {
       if (tx != null) tx.rollback()
@@ -85,9 +84,6 @@ class BaseEntityManager {
     } finally {
       session.close()
     }
-
-    obj.id = id
-
     obj
   }
 }

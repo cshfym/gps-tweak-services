@@ -3,6 +3,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+      <!--
       <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
       <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url">
@@ -10,6 +11,14 @@
         </property>
       <property name="hibernate.connection.username">ekprpwonnudjpr</property>
       <property name="hibernate.connection.password">v43QSQLk8dmB-LJETM_2b99xdf</property>
+      <property name="hibernate.connection.requireSSL">true</property>
+      -->
+
+      <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+      <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+      <property name="hibernate.connection.url">jdbc:mysql://104.236.129.239:3306/gpstweak</property>
+      <property name="hibernate.connection.username">neo</property>
+      <property name="hibernate.connection.password">Gpstweak2015!</property>
       <property name="hibernate.connection.requireSSL">true</property>
 
       <!-- Enable C3P0 database connection pool -->
