@@ -5,20 +5,26 @@ import com.gpstweak.domain.PayloadType
 import grails.transaction.Transactional
 import org.springframework.stereotype.Service
 
+import java.text.SimpleDateFormat
+
 @Service
 @Transactional
 class GPSDataService extends BaseEntityManager {
 
-  def createGPSData() {
+  def createMockGPSData() {
 
     GPSData gps = new GPSData()
     gps.with {
       userId = "charward"
       createDate = new Date()
-      payloadType = PayloadType.GPX.getType()
+      payloadClass = GPSData.getName()
       payload = ""
     }
 
     create(gps)
+  }
+
+  def persistGPSData(GPSData data) {
+    create(data)
   }
 }

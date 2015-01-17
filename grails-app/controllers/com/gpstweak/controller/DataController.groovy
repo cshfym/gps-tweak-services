@@ -3,6 +3,7 @@ package com.gpstweak.controller
 import com.gpstweak.domain.Employee
 import com.gpstweak.domain.GPSData
 import com.gpstweak.domain.GPSPayloadWrapper
+import com.gpstweak.exception.InvalidPayloadException
 import com.gpstweak.services.GPSDataService
 import com.gpstweak.services.MQService
 import com.gpstweak.services.MongoService
@@ -36,13 +37,11 @@ public class DataController {
     @Autowired
     MongoService mongoService
 
-
-
     Gson gson = new Gson()
 
     def index() {
-        Employee e = new Employee(firstName: "Index", lastName: "Method")
-        render gson.toJson(e)
+      response.setStatus(404)
+      return
     }
 
     def push() {
@@ -77,15 +76,41 @@ public class DataController {
       render gson.toJson(list)
     }
 
-    def save() {
-      /*
-        GPSPayloadWrapper payload = new GPSPayloadWrapper(request.JSON)
-        mongoService.saveData(payload)
-        response.setStatus(201)
-        render gson.toJson(payload)
-        */
+    def validateRequestPayload() {
 
-      GPSData data = gpsDataService.createGPSData()
+      Boolean validated = Boolean.TRUE
+      if(!request.JSON?.userId) { validated = Boolean.FALSE }
+      if(!request.JSON?.payload) { validated = Boolean.FALSE }
+      validated
+    }
+
+    def save() {
+
+      /*
+      if(validateRequestPayload()) {
+        response.setStatus(500)
+        render gson.toJson(new InvalidPayloadException("Payload cannot be empty."))
+        return
+      }
+*/
+
+      GPSData data
+      try {
+        data = gson.fromJson(request.JSON, GPSData.class)
+      } catch (JsonSyntaxException jEx) {
+        response.setStatus(500)
+        render gson.toJson(new InvalidPayloadException("Invalid payload format."))
+        return
+      }
+
+      try {
+        data = gpsDataService.persistGPSData(data)
+      } catch (Exception ex) {
+        response.setStatus(500)
+        render gson.toJson(new InvalidPayloadException("Could not persist GPS data: " + ex.getMessage()))
+        return
+      }
+
       response.setStatus(201)
       render gson.toJson(data)
     }
@@ -100,4 +125,7 @@ public class DataController {
         render gson.toJson(e)
     }
 
+    def byId() {
+      response.setStatus(500)
+    }
 }

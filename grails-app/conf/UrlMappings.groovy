@@ -11,7 +11,10 @@ class UrlMappings {
 		"/"(view:"/index")
 		*/
         "/data"(controller:"data") {
-            action = [GET:"show", PUT:"update", DELETE:"delete", POST:"save"]
+            action = [PUT:"update", DELETE:"delete", POST:"save"]
+        }
+        "/data/$id"(controller:"data") {
+            action = [GET:"show", PUT:"updateById", DELETE: "deleteById"]
         }
         "/data/findAll"(controller:"data", action:"findAll")
         "/data/push"(controller:"data", action:"push")

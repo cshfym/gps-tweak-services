@@ -26,65 +26,36 @@ class GPSData extends Persistable {
   @Column(name = "user_id")
   String userId
 
-  @Column(name = "payload_type")
-  String payloadType
+  @Column(name = "payload_class")
+  String payloadClass
 
   @Column(name = "payload")
   String payload
 
-  @Temporal(TemporalType.DATE)
-  @Column(name = "create_date")
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "create_date", columnDefinition="DATETIME")
   Date createDate
 
-  @Temporal(TemporalType.DATE)
-  @Column(name = "update_date")
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "update_date", columnDefinition="DATETIME")
   Date updateDate
 
-  Long getId() {
-    return id
-  }
+  Long getId() { id }
+  void setId(Long id) { this.id = id }
 
-  void setId(Long id) {
-    this.id = id
-  }
+  String getUserId() { userId }
+  void setUserId(String userId) { this.userId = userId }
 
-  String getUserId() {
-    return userId
-  }
+  String getPayloadClass() { payloadClass }
+  void setPayloadClass(String payloadClass) { this.payloadClass = payloadClass }
 
-  void setUserId(String userId) {
-    this.userId = userId
-  }
+  String getPayload() { payload }
+  void setPayload(String payload) { this.payload = payload }
 
-  String getPayloadType() {
-    return payloadType
-  }
+  Date getCreateDate() { createDate }
+  void setCreateDate(Date createDate) { this.createDate = createDate }
 
-  void setPayloadType(String payloadType) {
-    this.payloadType = payloadType
-  }
+  Date getUpdateDate() { updateDate }
+  void setUpdateDate(Date updateDate) { this.updateDate = updateDate }
 
-  String getPayload() {
-    return payload
-  }
-
-  void setPayload(String payload) {
-    this.payload = payload
-  }
-
-  Date getCreateDate() {
-    return createDate
-  }
-
-  void setCreateDate(Date createDate) {
-    this.createDate = createDate
-  }
-
-  Date getUpdateDate() {
-    return updateDate
-  }
-
-  void setUpdateDate(Date updateDate) {
-    this.updateDate = updateDate
-  }
 }
