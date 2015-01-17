@@ -2,10 +2,12 @@ package com.gpstweak.domain
 
 class GPSPayloadWrapper {
 
+    String id
     String userId
-    String createDate
-    String payloadType
-    String base64Payload // Base64
+    String payloadClass
+    String payload
+    Date createDate
+    Date updateDate
 
     public GPSPayloadWrapper() {  }
 

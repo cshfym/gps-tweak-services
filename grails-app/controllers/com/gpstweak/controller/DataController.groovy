@@ -51,6 +51,12 @@ public class DataController {
       response.setStatus(200)
     }
 
+  /**
+   * Fetches GPSData as a GPSPayloadWrapper.
+   * @path: /data/$id
+   * @param id
+   * @return
+   */
     def show(String id) {
       /*
         List<GPSPayloadWrapper> list = mongoService.getGPSPayloadWrapperDataByUserId(userId)
@@ -61,14 +67,29 @@ public class DataController {
         return
       }
 
+      // Retrieve GPSData object by ID.
       GPSData data = gpsDataService.find(GPSData.class, Long.valueOf(id))
       if (null == data) {
         response.setStatus(404)
         return
       }
 
+      // Convert compressed payload back to Base64-encoded string.
+      String base64Payload = StringCompressor.decompress(data.payload)
+
+      // TODO: Move this to a converter class.
+      // Convert to GPSPayloadWrapper object return class.
+      GPSPayloadWrapper wrapper = new GPSPayloadWrapper(
+        id: data.id,
+        userId: data.userId,
+        payload: base64Payload,
+        payloadClass: data.payloadClass,
+        createDate: data.createDate,
+        updateDate: data.updateDate
+      )
+
       response.setStatus(200)
-      render gson.toJson(data)
+      render gson.toJson(wrapper)
     }
 
     def findAll() {
@@ -85,32 +106,44 @@ public class DataController {
       validated
     }
 
+  /**
+   * Accepts a GPSPayloadWrapper-compatible JSON object. The input payload is a Base64-encoded representation of the GPS data.
+   * Input JSON requires a userId and payload value.
+   * @return void
+   */
     def save() {
 
-      /*
-      if(validateRequestPayload()) {
+      if(!validateRequestPayload()) {
         response.setStatus(500)
-        render gson.toJson(new InvalidPayloadException("Payload cannot be empty."))
+        render gson.toJson(new InvalidPayloadException("Invalid payload format - failed validation."))
         return
       }
-*/
 
-      GPSData data
+      GPSPayloadWrapper wrapper
       try {
-        data = new GPSData(request.JSON)
+        wrapper = new GPSPayloadWrapper(
+          userId: request.JSON?.userId,
+          payload: request.JSON?.payload
+        )
       } catch (JsonSyntaxException jEx) {
         response.setStatus(500)
-        render gson.toJson(new InvalidPayloadException("Invalid payload format."))
+        render gson.toJson(new InvalidPayloadException("Invalid payload format (JsonSyntaxException)."))
         return
       }
 
+      // Instantiate a GPSData DB-compatible object.
+      GPSData data = new GPSData(userId: wrapper.userId)
 
+      // Compress and convert Base64-encoded payload to byte[].
+      data.setPayload(StringCompressor.compress(wrapper.payload))
+
+      /*
       def file = grailsAttributes.getApplicationContext().getResource("gpxdata/OgdenMarathon.base64").getFile()
       println "Size before compressed: ${file.getText('UTF-8').length()}"
       byte[] compressed = StringCompressor.compress(file.getText('UTF-8'))
       println "Size after compressed: ${compressed.length}"
-      //String fileContents = new File(request.getContextPath() + '/gpxdata/OgdenMarathon.base64').getText('UTF-8')
-      data.setPayload(compressed)
+      data.setPayload(compressed)*
+      */
 
       try {
         data = gpsDataService.persistGPSData(data)
