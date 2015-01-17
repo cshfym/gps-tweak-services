@@ -7,6 +7,7 @@ import com.gpstweak.exception.InvalidPayloadException
 import com.gpstweak.services.GPSDataService
 import com.gpstweak.services.MQService
 import com.gpstweak.services.MongoService
+import com.gpstweak.util.StringCompressor
 import org.springframework.beans.factory.annotation.Autowired
 import com.gpstweak.services.GPSTweakSecurityService
 import com.google.gson.*
@@ -96,18 +97,26 @@ public class DataController {
 
       GPSData data
       try {
-        data = gson.fromJson(request.JSON, GPSData.class)
+        data = new GPSData(request.JSON)
       } catch (JsonSyntaxException jEx) {
         response.setStatus(500)
         render gson.toJson(new InvalidPayloadException("Invalid payload format."))
         return
       }
 
+
+      def file = grailsAttributes.getApplicationContext().getResource("gpxdata/OgdenMarathon.base64").getFile()
+      println "Size before compressed: ${file.getText('UTF-8').length()}"
+      byte[] compressed = StringCompressor.compress(file.getText('UTF-8'))
+      println "Size after compressed: ${compressed.length}"
+      //String fileContents = new File(request.getContextPath() + '/gpxdata/OgdenMarathon.base64').getText('UTF-8')
+      data.setPayload(compressed)
+
       try {
         data = gpsDataService.persistGPSData(data)
       } catch (Exception ex) {
         response.setStatus(500)
-        render gson.toJson(new InvalidPayloadException("Could not persist GPS data: " + ex.getMessage()))
+        render gson.toJson(new InvalidPayloadException("Could not persist GPS data: " + ex.getCause()))
         return
       }
 

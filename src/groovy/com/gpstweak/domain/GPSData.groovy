@@ -5,6 +5,7 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
+import javax.persistence.Lob
 import javax.persistence.SequenceGenerator
 import javax.persistence.Table
 import javax.persistence.Temporal
@@ -30,7 +31,8 @@ class GPSData extends Persistable {
   String payloadClass
 
   @Column(name = "payload")
-  String payload
+  @Lob
+  byte[] payload
 
   @Temporal(TemporalType.TIMESTAMP)
   @Column(name = "create_date", columnDefinition="DATETIME")
@@ -49,8 +51,8 @@ class GPSData extends Persistable {
   String getPayloadClass() { payloadClass }
   void setPayloadClass(String payloadClass) { this.payloadClass = payloadClass }
 
-  String getPayload() { payload }
-  void setPayload(String payload) { this.payload = payload }
+  byte[] getPayload() { payload }
+  void setPayload(byte[] payload) { this.payload = payload }
 
   Date getCreateDate() { createDate }
   void setCreateDate(Date createDate) { this.createDate = createDate }

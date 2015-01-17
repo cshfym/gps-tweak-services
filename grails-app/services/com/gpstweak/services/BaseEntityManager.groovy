@@ -75,7 +75,6 @@ class BaseEntityManager {
 
     try {
       tx = session.beginTransaction()
-      //id = (Integer) session.save(obj)
       session.save(obj)
       tx.commit()
     } catch (HibernateException e) {

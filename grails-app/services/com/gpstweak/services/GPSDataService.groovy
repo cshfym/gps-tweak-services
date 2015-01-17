@@ -25,6 +25,8 @@ class GPSDataService extends BaseEntityManager {
   }
 
   def persistGPSData(GPSData data) {
+    data.setCreateDate(new Date())
+    data.setPayloadClass(GPSData.getName())
     create(data)
   }
 }
