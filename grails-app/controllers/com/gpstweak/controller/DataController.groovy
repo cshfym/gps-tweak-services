@@ -1,15 +1,18 @@
 package com.gpstweak.controller
 
-import com.gpstweak.domain.Employee
 import com.gpstweak.domain.GPSData
 import com.gpstweak.domain.GPSPayloadWrapper
 import com.gpstweak.exception.InvalidPayloadException
-import com.gpstweak.services.GPSDataService
-import com.gpstweak.services.MQService
-import com.gpstweak.services.MongoService
+import com.gpstweak.service.converters.GPSDataConverter
+import com.gpstweak.service.parsers.GPXParseService
+import com.gpstweak.service.parsers.TCXParseService
+import com.gpstweak.services.gps.GPSDataService
+import com.gpstweak.services.mq.MQService
+import com.gpstweak.services.mongo.MongoService
+import com.gpstweak.topograpix.GpxType
 import com.gpstweak.util.StringCompressor
 import org.springframework.beans.factory.annotation.Autowired
-import com.gpstweak.services.GPSTweakSecurityService
+import com.gpstweak.services.security.GPSTweakSecurityService
 import com.google.gson.*
 
 /* Grails Controllers:
@@ -30,6 +33,15 @@ If this is not a requirement they can be discarded.
 public class DataController {
 
     @Autowired
+    GPXParseService gpxParseService
+
+    @Autowired
+    GPSDataConverter gpsDataConverter
+
+    @Autowired
+    TCXParseService tcxParseService
+
+    @Autowired
     GPSTweakSecurityService securityService
 
     @Autowired
@@ -38,7 +50,8 @@ public class DataController {
     @Autowired
     MongoService mongoService
 
-    Gson gson = new Gson()
+    @Autowired
+    Gson gson
 
     def index() {
       response.setStatus(404)
@@ -58,10 +71,7 @@ public class DataController {
    * @return
    */
     def show(String id) {
-      /*
-        List<GPSPayloadWrapper> list = mongoService.getGPSPayloadWrapperDataByUserId(userId)
-        render gson.toJson(list)
-        */
+
       if (null == id) {
         response.setStatus(404)
         return
@@ -93,9 +103,23 @@ public class DataController {
     }
 
     def findAll() {
-      List<GPSData> list = gpsDataService.findAll(GPSData.canonicalName)
+
+        File gpxFile = grailsAttributes.getApplicationContext().getResource("gpxdata/OgdenMarathon2014.gpx").getFile()
+        GpxType gpx = gpxParseService.parseGpxType(gpxFile)
+        com.gpstweak.model.GPSData data = gpsDataConverter.convertFromGpxType(gpx)
+        response.setStatus(200)
+        render gson.toJson(data)
+
+        /*
+        File tcxFile = grailsAttributes.getApplicationContext().getResource("gpxdata/activity_230302156.tcx").getFile()
+        TrainingCenterDatabaseT tcx = tcxParseService.parseTcxType(tcxFile)
+        response.setStatus(200)
+        render gson.toJson(tcx)
+        */
+
+      /*List<GPSData> list = gpsDataService.findAll(GPSData.canonicalName)
       response.setStatus(200)
-      render gson.toJson(list)
+      render gson.toJson(list)*/
     }
 
     def validateRequestPayload() {
@@ -158,13 +182,13 @@ public class DataController {
     }
 
     def update() {
-        Employee e = new Employee(firstName: "Update", lastName: "Method")
-        render gson.toJson(e)
+        //Employee e = new Employee(firstName: "Update", lastName: "Method")
+        //render gson.toJson(e)
     }
 
     def delete() {
-        Employee e = new Employee(firstName: "Delete", lastName: "Method")
-        render gson.toJson(e)
+        //Employee e = new Employee(firstName: "Delete", lastName: "Method")
+        //render gson.toJson(e)
     }
 
     def byId() {

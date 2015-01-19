@@ -1,4 +1,4 @@
-package com.gpstweak.services
+package com.gpstweak.services.mq
 
 import grails.transaction.Transactional
 import io.iron.ironmq.Client

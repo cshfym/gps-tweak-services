@@ -6,6 +6,7 @@ grails.project.target.level = 1.7
 grails.project.source.level = 1.7
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
+def gpsUtilityVersion = "0.1"
 def jettyVersion = "9.3.0.M1"
 def hibernateVersion = "3.5.4-Final"
 def springVersion = "3.2.8.RELEASE"
@@ -46,6 +47,8 @@ grails.project.dependency.resolution = {
     }
     dependencies {
 
+        compile "com.gpstweak:lib-gps-utility:${gpsUtilityVersion}"
+
         // Jetty
         //compile "org.eclipse.jetty:jetty-servlet:${jettyVersion}"
         //compile "org.eclipse.jetty:jetty-webapp:${jettyVersion}"
@@ -62,6 +65,8 @@ grails.project.dependency.resolution = {
         compile "ironmq:ironmq:${ironmqVersion}"
         runtime "postgresql:postgresql:${postgreSqlVersion}"
         runtime "mysql:mysql-connector-java:5.1.6"
+
+        runtime 'javax.xml.bind:jaxb-api:2.2.12'
     }
 
     plugins {

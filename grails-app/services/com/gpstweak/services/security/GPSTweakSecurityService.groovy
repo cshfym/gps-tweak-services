@@ -1,4 +1,4 @@
-package com.gpstweak.services
+package com.gpstweak.services.security
 
 import grails.transaction.Transactional
 import org.springframework.stereotype.Service

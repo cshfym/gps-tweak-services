@@ -1,4 +1,4 @@
-package com.gpstweak.services
+package com.gpstweak.services.db
 
 import com.gpstweak.domain.GPSData
 import com.gpstweak.domain.Persistable

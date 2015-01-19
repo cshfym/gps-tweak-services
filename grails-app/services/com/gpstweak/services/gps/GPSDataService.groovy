@@ -1,11 +1,9 @@
-package com.gpstweak.services
+package com.gpstweak.services.gps
 
 import com.gpstweak.domain.GPSData
-import com.gpstweak.domain.PayloadType
+import com.gpstweak.services.db.BaseEntityManager
 import grails.transaction.Transactional
 import org.springframework.stereotype.Service
-
-import java.text.SimpleDateFormat
 
 @Service
 @Transactional

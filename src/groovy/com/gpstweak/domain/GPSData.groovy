@@ -13,13 +13,11 @@ import javax.persistence.TemporalType
 
 @Entity
 @Table(name = "gps_data")
-//@SequenceGenerator(name="pk_sequence", sequenceName="seq_gps_data", allocationSize = 1)
 class GPSData extends Persistable {
 
   public GPSData() { }
 
   @Id
-  //@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="pk_sequence")
   @GeneratedValue(strategy=GenerationType.AUTO)
   @Column(name = "id")
   Long id

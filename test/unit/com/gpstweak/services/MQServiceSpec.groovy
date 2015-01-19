@@ -1,5 +1,6 @@
 package com.gpstweak.services
 
+import com.gpstweak.services.mq.MQService
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 

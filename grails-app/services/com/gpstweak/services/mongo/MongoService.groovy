@@ -1,4 +1,4 @@
-package com.gpstweak.services
+package com.gpstweak.services.mongo
 
 import com.gpstweak.domain.GPSPayloadWrapper
 import com.mongodb.BasicDBObject
