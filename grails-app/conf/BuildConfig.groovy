@@ -44,6 +44,8 @@ grails.project.dependency.resolution = {
         mavenCentral()
 
         mavenRepo "http://iron-io.github.com/maven/repository"
+
+        flatDir { dirs "lib" }
     }
     dependencies {
 
