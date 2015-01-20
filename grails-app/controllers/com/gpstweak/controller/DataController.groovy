@@ -10,6 +10,7 @@ import com.gpstweak.services.gps.GPSDataService
 import com.gpstweak.services.mq.MQService
 import com.gpstweak.services.mongo.MongoService
 import com.gpstweak.topograpix.GpxType
+import com.gpstweak.trainingcenterdatabase_v2.TrainingCenterDatabaseT
 import com.gpstweak.util.StringCompressor
 import org.springframework.beans.factory.annotation.Autowired
 import com.gpstweak.services.security.GPSTweakSecurityService
@@ -104,18 +105,20 @@ public class DataController {
 
     def findAll() {
 
+        /*
         File gpxFile = grailsAttributes.getApplicationContext().getResource("gpxdata/OgdenMarathon2014.gpx").getFile()
         GpxType gpx = gpxParseService.parseGpxType(gpxFile)
         com.gpstweak.model.GPSData data = gpsDataConverter.convertFromGpxType(gpx)
         response.setStatus(200)
-        render gson.toJson(data)
+        render gson.toJson(data) */
 
-        /*
+
         File tcxFile = grailsAttributes.getApplicationContext().getResource("gpxdata/activity_230302156.tcx").getFile()
         TrainingCenterDatabaseT tcx = tcxParseService.parseTcxType(tcxFile)
+        com.gpstweak.model.GPSData data = gpsDataConverter.convertFromTcxType(tcx)
         response.setStatus(200)
-        render gson.toJson(tcx)
-        */
+        render gson.toJson(data)
+
 
       /*List<GPSData> list = gpsDataService.findAll(GPSData.canonicalName)
       response.setStatus(200)
