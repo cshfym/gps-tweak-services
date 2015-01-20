@@ -1,0 +1,1 @@
+mvn deploy:deploy-file -DgroupId=com.gpstweak -DartifactId=lib-gps-utility -Dversion=0.1 -Dpackaging=jar -Dfile=lib-gps-utility-0.1.jar -Durl=file:///c:/Development/Workspace/gps-tweak-services/repository/lib-gps-utility

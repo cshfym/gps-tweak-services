@@ -27,6 +27,12 @@ grails.project.dependency.resolution = {
     log "debug" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
 
+    /*
+    def libGpsUtilityRepo = new File("repository/lib-gps-utility").absolutePath
+    println libGpsUtilityRepo
+    https://github.com/cshfym/lib-gps-utility.git
+    */
+
     repositories {
         inherits true // Whether to inherit repository definitions from plugins
 
@@ -38,12 +44,6 @@ grails.project.dependency.resolution = {
         mavenCentral()
 
         mavenRepo "http://iron-io.github.com/maven/repository"
-
-        // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
-        //mavenRepo "http://snapshots.repository.codehaus.org"
-        //mavenRepo "http://repository.codehaus.org"
-        //mavenRepo "http://download.java.net/maven/2/"
-        //mavenRepo "http://repository.jboss.com/maven2/"
     }
     dependencies {
 
