@@ -1,0 +1,3 @@
+[submodule "lib-gps-utility"]
+	path = lib-gps-utility
+	url = https://github.com/cshfym/lib-gps-utility.git
